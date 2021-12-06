@@ -1,0 +1,367 @@
+CVE;Risk;Host;Port;Name;Synopsis;Description;Solution;See Also;Plugin Output;CVSS v3.0 Base Score
+CVE-2003-1567;Medium;10.10.144.73;443;HTTP TRACE / TRACK Methods Allowed;Debugging functions are enabled on the remote web server.;"The remote web server supports the TRACE and/or TRACK methods. TRACE
+and TRACK are HTTP methods that are used to debug web server
+connections.";Disable these HTTP methods. Refer to the plugin output for more information.;"https://www.cgisecurity.com/whitehat-mirror/WH-WhitePaper_XST_ebook.pdf
+http://www.apacheweek.com/issues/03-01-24
+https://download.oracle.com/sunalerts/1000718.1.html";"
+To disable these methods, add the following lines for each virtual
+host in your configuration file :
+
+    RewriteEngine on
+    RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+    RewriteRule .* - [F]
+
+Alternatively, note that Apache versions 1.3.34, 2.0.55, and 2.2
+support disabling the TRACE method natively via the 'TraceEnable'
+directive.
+
+Nessus sent the following TRACE request : 
+
+------------------------------ snip ------------------------------
+TRACE /Nessus205189544.html HTTP/1.1
+Connection: Close
+Host: 10.10.144.73
+Pragma: no-cache
+User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png, */*
+Accept-Language: en
+Accept-Charset: iso-8859-1,*,utf-8
+
+------------------------------ snip ------------------------------
+
+and received the following response from the remote server :
+
+------------------------------ snip ------------------------------
+HTTP/1.1 200 OK
+Date: Mon, 06 Dec 2021 13:26:17 GMT
+Server: Apache/2.4.37 (centos) OpenSSL/1.1.1g
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: message/http
+
+
+TRACE /Nessus205189544.html HTTP/1.1
+Connection: Keep-Alive
+Host: 10.10.144.73
+Pragma: no-cache
+User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png, */*
+Accept-Language: en
+Accept-Charset: iso-8859-1,*,utf-8
+
+------------------------------ snip ------------------------------
+";5.3
+CVE-2004-2320;Medium;10.10.144.73;443;HTTP TRACE / TRACK Methods Allowed;Debugging functions are enabled on the remote web server.;"The remote web server supports the TRACE and/or TRACK methods. TRACE
+and TRACK are HTTP methods that are used to debug web server
+connections.";Disable these HTTP methods. Refer to the plugin output for more information.;"https://www.cgisecurity.com/whitehat-mirror/WH-WhitePaper_XST_ebook.pdf
+http://www.apacheweek.com/issues/03-01-24
+https://download.oracle.com/sunalerts/1000718.1.html";"
+To disable these methods, add the following lines for each virtual
+host in your configuration file :
+
+    RewriteEngine on
+    RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+    RewriteRule .* - [F]
+
+Alternatively, note that Apache versions 1.3.34, 2.0.55, and 2.2
+support disabling the TRACE method natively via the 'TraceEnable'
+directive.
+
+Nessus sent the following TRACE request : 
+
+------------------------------ snip ------------------------------
+TRACE /Nessus205189544.html HTTP/1.1
+Connection: Close
+Host: 10.10.144.73
+Pragma: no-cache
+User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png, */*
+Accept-Language: en
+Accept-Charset: iso-8859-1,*,utf-8
+
+------------------------------ snip ------------------------------
+
+and received the following response from the remote server :
+
+------------------------------ snip ------------------------------
+HTTP/1.1 200 OK
+Date: Mon, 06 Dec 2021 13:26:17 GMT
+Server: Apache/2.4.37 (centos) OpenSSL/1.1.1g
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: message/http
+
+
+TRACE /Nessus205189544.html HTTP/1.1
+Connection: Keep-Alive
+Host: 10.10.144.73
+Pragma: no-cache
+User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png, */*
+Accept-Language: en
+Accept-Charset: iso-8859-1,*,utf-8
+
+------------------------------ snip ------------------------------
+";5.3
+CVE-2010-0386;Medium;10.10.144.73;443;HTTP TRACE / TRACK Methods Allowed;Debugging functions are enabled on the remote web server.;"The remote web server supports the TRACE and/or TRACK methods. TRACE
+and TRACK are HTTP methods that are used to debug web server
+connections.";Disable these HTTP methods. Refer to the plugin output for more information.;"https://www.cgisecurity.com/whitehat-mirror/WH-WhitePaper_XST_ebook.pdf
+http://www.apacheweek.com/issues/03-01-24
+https://download.oracle.com/sunalerts/1000718.1.html";"
+To disable these methods, add the following lines for each virtual
+host in your configuration file :
+
+    RewriteEngine on
+    RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+    RewriteRule .* - [F]
+
+Alternatively, note that Apache versions 1.3.34, 2.0.55, and 2.2
+support disabling the TRACE method natively via the 'TraceEnable'
+directive.
+
+Nessus sent the following TRACE request : 
+
+------------------------------ snip ------------------------------
+TRACE /Nessus205189544.html HTTP/1.1
+Connection: Close
+Host: 10.10.144.73
+Pragma: no-cache
+User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png, */*
+Accept-Language: en
+Accept-Charset: iso-8859-1,*,utf-8
+
+------------------------------ snip ------------------------------
+
+and received the following response from the remote server :
+
+------------------------------ snip ------------------------------
+HTTP/1.1 200 OK
+Date: Mon, 06 Dec 2021 13:26:17 GMT
+Server: Apache/2.4.37 (centos) OpenSSL/1.1.1g
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: message/http
+
+
+TRACE /Nessus205189544.html HTTP/1.1
+Connection: Keep-Alive
+Host: 10.10.144.73
+Pragma: no-cache
+User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png, */*
+Accept-Language: en
+Accept-Charset: iso-8859-1,*,utf-8
+
+------------------------------ snip ------------------------------
+";5.3
+;Medium;10.10.144.73;443;SSL Certificate Cannot Be Trusted;The SSL certificate for this service cannot be trusted.;"The server's X.509 certificate cannot be trusted. This situation can
+occur in three different ways, in which the chain of trust can be
+broken, as stated below :
+
+  - First, the top of the certificate chain sent by the
+    server might not be descended from a known public
+    certificate authority. This can occur either when the
+    top of the chain is an unrecognized, self-signed
+    certificate, or when intermediate certificates are
+    missing that would connect the top of the certificate
+    chain to a known public certificate authority.
+
+  - Second, the certificate chain may contain a certificate
+    that is not valid at the time of the scan. This can
+    occur either when the scan occurs before one of the
+    certificate's 'notBefore' dates, or after one of the
+    certificate's 'notAfter' dates.
+
+  - Third, the certificate chain may contain a signature
+    that either didn't match the certificate's information
+    or could not be verified. Bad signatures can be fixed by
+    getting the certificate with the bad signature to be
+    re-signed by its issuer. Signatures that could not be
+    verified are the result of the certificate's issuer
+    using a signing algorithm that Nessus either does not
+    support or does not recognize.
+
+If the remote host is a public host in production, any break in the
+chain makes it more difficult for users to verify the authenticity and 
+identity of the web server. This could make it easier to carry out 
+man-in-the-middle attacks against the remote host.";Purchase or generate a proper SSL certificate for this service.;"https://www.itu.int/rec/T-REC-X.509/en
+https://en.wikipedia.org/wiki/X.509";"
+The following certificate was at the top of the certificate
+chain sent by the remote host, but it is signed by an unknown
+certificate authority :
+
+|-Subject : C=IT/ST=Italy/L=Rome/O=SyncSecurity/OU=IT/CN=site.syncsec.priv/E=andrei.iaroslavschi@syncsecurity.it
+|-Issuer  : C=IT/ST=Italy/L=Rome/O=SyncSecurity/OU=IT/CN=site.syncsec.priv/E=andrei.iaroslavschi@syncsecurity.it
+";6.5
+;High;10.10.144.73;8443;SSL Certificate Cannot Be Trusted;The SSL certificate for this service cannot be trusted.;"The server's X.509 certificate cannot be trusted. This situation can
+occur in three different ways, in which the chain of trust can be
+broken, as stated below :
+
+  - First, the top of the certificate chain sent by the
+    server might not be descended from a known public
+    certificate authority. This can occur either when the
+    top of the chain is an unrecognized, self-signed
+    certificate, or when intermediate certificates are
+    missing that would connect the top of the certificate
+    chain to a known public certificate authority.
+
+  - Second, the certificate chain may contain a certificate
+    that is not valid at the time of the scan. This can
+    occur either when the scan occurs before one of the
+    certificate's 'notBefore' dates, or after one of the
+    certificate's 'notAfter' dates.
+
+  - Third, the certificate chain may contain a signature
+    that either didn't match the certificate's information
+    or could not be verified. Bad signatures can be fixed by
+    getting the certificate with the bad signature to be
+    re-signed by its issuer. Signatures that could not be
+    verified are the result of the certificate's issuer
+    using a signing algorithm that Nessus either does not
+    support or does not recognize.
+
+If the remote host is a public host in production, any break in the
+chain makes it more difficult for users to verify the authenticity and 
+identity of the web server. This could make it easier to carry out 
+man-in-the-middle attacks against the remote host.";Purchase or generate a proper SSL certificate for this service.;"https://www.itu.int/rec/T-REC-X.509/en
+https://en.wikipedia.org/wiki/X.509";"
+The following certificate was at the top of the certificate
+chain sent by the remote host, but it is signed by an unknown
+certificate authority :
+
+|-Subject : C=IT/ST=Italy/L=Rome/O=SyncSecurity/OU=IT/CN=cloudcld.syncsec.priv/E=daniel.dangeli@syncsecurity.it
+|-Issuer  : C=IT/ST=Italy/L=Rome/O=SyncSecurity/OU=IT/CN=cloudcld.syncsec.priv/E=daniel.dangeli@syncsecurity.it
+";6.5
+;High;10.10.144.73;443;SSL Self-Signed Certificate;"The SSL certificate chain for this service ends in an unrecognized
+self-signed certificate.";"The X.509 certificate chain for this service is not signed by a
+recognized certificate authority.  If the remote host is a public host
+in production, this nullifies the use of SSL as anyone could establish
+a man-in-the-middle attack against the remote host. 
+
+Note that this plugin does not check for certificate chains that end
+in a certificate that is not self-signed, but is signed by an
+unrecognized certificate authority.";Purchase or generate a proper SSL certificate for this service.;;"
+The following certificate was found at the top of the certificate
+chain sent by the remote host, but is self-signed and was not
+found in the list of known certificate authorities :
+
+|-Subject : C=IT/ST=Italy/L=Rome/O=SyncSecurity/OU=IT/CN=site.syncsec.priv/E=andrei.iaroslavschi@syncsecurity.it
+";
+;Medium;10.10.144.73;8443;SSL Self-Signed Certificate;"The SSL certificate chain for this service ends in an unrecognized
+self-signed certificate.";"The X.509 certificate chain for this service is not signed by a
+recognized certificate authority.  If the remote host is a public host
+in production, this nullifies the use of SSL as anyone could establish
+a man-in-the-middle attack against the remote host. 
+
+Note that this plugin does not check for certificate chains that end
+in a certificate that is not self-signed, but is signed by an
+unrecognized certificate authority.";Purchase or generate a proper SSL certificate for this service.;;"
+The following certificate was found at the top of the certificate
+chain sent by the remote host, but is self-signed and was not
+found in the list of known certificate authorities :
+
+|-Subject : C=IT/ST=Italy/L=Rome/O=SyncSecurity/OU=IT/CN=cloudcld.syncsec.priv/E=daniel.dangeli@syncsecurity.it
+";
+CVE-2008-5161;Low;10.10.144.73;22;SSH Server CBC Mode Ciphers Enabled;The SSH server is configured to use Cipher Block Chaining.;"The SSH server is configured to support Cipher Block Chaining (CBC)
+encryption.  This may allow an attacker to recover the plaintext message
+from the ciphertext. 
+
+Note that this plugin only checks for the options of the SSH server and
+does not check for vulnerable software versions.";"Contact the vendor or consult product documentation to disable CBC mode
+cipher encryption, and enable CTR or GCM cipher mode encryption.";;"
+The following client-to-server Cipher Block Chaining (CBC) algorithms
+are supported : 
+
+  3des-cbc
+  aes128-cbc
+  aes192-cbc
+  aes256-cbc
+  blowfish-cbc
+  cast128-cbc
+
+The following server-to-client Cipher Block Chaining (CBC) algorithms
+are supported : 
+
+  3des-cbc
+  aes128-cbc
+  aes192-cbc
+  aes256-cbc
+  blowfish-cbc
+  cast128-cbc
+";
+;Medium;10.10.144.73;443;Web Application Potentially Vulnerable to Clickjacking;"The remote web server may fail to mitigate a class of web application
+vulnerabilities.";"The remote web server does not set an X-Frame-Options response header
+or a Content-Security-Policy 'frame-ancestors' response header in all
+content responses. This could potentially expose the site to a
+clickjacking or UI redress attack, in which an attacker can trick a
+user into clicking an area of the vulnerable page that is different
+than what the user perceives the page to be. This can result in a user
+performing fraudulent or malicious transactions.
+
+X-Frame-Options has been proposed by Microsoft as a way to mitigate
+clickjacking attacks and is currently supported by all major browser
+vendors.
+
+Content-Security-Policy (CSP) has been proposed by the W3C Web
+Application Security Working Group, with increasing support among
+all major browser vendors, as a way to mitigate clickjacking and other
+attacks. The 'frame-ancestors' policy directive restricts which
+sources can embed the protected resource.
+
+Note that while the X-Frame-Options and Content-Security-Policy
+response headers are not the only mitigations for clickjacking, they
+are currently the most reliable methods that can be detected through
+automation. Therefore, this plugin may produce false positives if
+other mitigation strategies (e.g., frame-busting JavaScript) are
+deployed or if the page does not perform any security-sensitive
+transactions.";"Return the X-Frame-Options or Content-Security-Policy (with the
+'frame-ancestors' directive) HTTP header with the page's response.
+This prevents the page's content from being rendered by another site
+when using the frame or iframe HTML tags.";"http://www.nessus.org/u?399b1f56
+https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet
+https://en.wikipedia.org/wiki/Clickjacking";"
+The following pages do not use a clickjacking mitigation response header and contain a clickable event :
+
+  - https://10.10.144.73/
+  - https://10.10.144.73/en/
+  - https://10.10.144.73/en/offered-services.html
+  - https://10.10.144.73/pages/offered-services.html
+";
+;High;10.10.144.50;;;;;;;;
+;Critical;10.10.144.53;;;;;;;;
+;Critical;10.10.144.73;;;;;;;;
+;Critical;10.10.144.50;;;;;;;;
+;Low;10.10.144.50;;;;;;;;
+;High;10.10.144.73;;;;;;;;
+;High;10.10.144.50;;;;;;;;
+;Medium;10.10.144.50;;;;;;;;
+;Low;10.10.144.73;22;SSH Weak Key Exchange Algorithms Enabled;The remote SSH server is configured to allow weak key exchange algorithms.;"The remote SSH server is configured to allow key exchange algorithms which are considered weak.
+
+This is based on the IETF draft document Key Exchange (KEX) Method Updates and Recommendations for Secure Shell (SSH)
+draft-ietf-curdle-ssh-kex-sha2-20. Section 4 lists guidance on key exchange algorithms that SHOULD NOT and MUST NOT be
+enabled. This includes:
+
+  diffie-hellman-group-exchange-sha1
+
+  diffie-hellman-group1-sha1
+
+  gss-gex-sha1-*
+
+  gss-group1-sha1-*
+
+  gss-group14-sha1-*
+
+  rsa1024-sha1
+
+Note that this plugin only checks for the options of the SSH server, and it does not check for vulnerable software
+versions.";Contact the vendor or consult product documentation to disable the weak algorithms.;"http://www.nessus.org/u?b02d91cd
+https://datatracker.ietf.org/doc/html/rfc8732";"
+The following weak key exchange algorithms are enabled : 
+
+  diffie-hellman-group-exchange-sha1
+  diffie-hellman-group1-sha1
+";3.7
