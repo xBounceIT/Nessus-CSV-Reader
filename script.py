@@ -25,10 +25,10 @@ def csvinput():
                     elif value == "Critical":
                         critical += 1
                         continue
-                low = round((low * 100) / size, 2)
-                mid = round((mid * 100) / size, 2)
-                high = round((high * 100) / size, 2)
-                critical = round((critical * 100) / size, 2)
+                low = int((low * 100) / size)
+                mid = int((mid * 100) / size)
+                high = int((high * 100) / size)
+                critical = int((critical * 100) / size)
                 results = [low, mid, high, critical]
                 return results
         except ValueError:
@@ -36,7 +36,7 @@ def csvinput():
 
 def graph(values):
     labels = ["Low", "Medium", "High", "Critical"]
-    plt.pie(values, labels)
+    plt.pie(values, labels=labels)
     plt.title("Rapporto severity rilevate")
     plt.legend(bbox_to_anchor=(1.05,1.0), loc="upper left")
     plt.savefig("torta.png")
