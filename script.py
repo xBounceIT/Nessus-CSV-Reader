@@ -1,6 +1,7 @@
 import csv
+import matplotlib.pyplot as plt
 
-def main():
+def csvinput():
     while True:
         try:
             csvfile = input("Inserisci il path del file csv: ")
@@ -28,13 +29,22 @@ def main():
                 mid = round((mid * 100) / size, 2)
                 high = round((high * 100) / size, 2)
                 critical = round((critical * 100) / size, 2)
-                print(f"Basse: {low}%\n")
-                print(f"Medie: {mid}%\n")
-                print(f"Alte: {high}%\n")
-                print(f"Critiche: {critical}%")
-                break
+                results = [low, mid, high, critical]
+                return results
         except ValueError:
             print("File non trovato, reinserire: ")
+
+def graph(values):
+    labels = ["Low", "Medium", "High", "Critical"]
+    plt.pie(values, labels)
+    plt.title("Rapporto severity rilevate")
+    plt.legend(bbox_to_anchor=(1.05,1.0), loc="upper left")
+    plt.savefig("torta.png")
+    return 0
+
+def main():
+    values = csvinput()
+    graph(values)
     return 0
 
 if __name__ == "__main__":
