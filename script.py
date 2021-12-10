@@ -6,26 +6,38 @@ def csvinput():
         try:
             csvfile = input("Inserisci il path del file csv: ")
             with open(csvfile, newline="") as csvfile:
-                reader = csv.reader(csvfile, delimiter=";")
-                next(reader)
-                dati = [(row[1], row[2]) for row in reader]
-                hosts = [(row[2]) for row in reader]
-                hosts = dict.fromkeys(hosts)
-                print(hosts)
-                input()
-                low, mid, high, critical = 0,0,0,0
-                for value in dati:
-                    host = value[1]
-                    low = dati.count(("Low", host))
-                    mid = dati.count(("Medium", host))
-                    high = dati.count(("High", host))
-                    critical = dati.count(("Critical", host))
-                    total = low + mid + high + critical
-                    low = int((low * 100) / total)
-                    mid = int((mid * 100) / total)
-                    high = int((high * 100) / total)
-                    critical = int((critical * 100) / total)
-                    print(host, "Low:", low, "Medium", mid, "High", high, "Critical", critical)
+                reader = csv.reader(csvfile, delimiter=";")                                         # Legge il file in input utilizzando il punto e virgola con delimiter
+                next(reader)                                                                        # Salta la prima riga corrispondente ai nomi valori
+                dati = [(row[1], row[2]) for row in reader]                                         # Dal file in input immagazzina i valori di ogni riga colonna 1,2
+                low, mid, high, critical = 0,0,0,0                                                  # Contatori per host
+                lowtotal, midtotal, hightotal, criticaltotal = 0,0,0,0                              # Contatori totale
+                hosts = []                                                                          # Lista hosts
+                for value in dati:                                                                  # Per ogni riga
+                    risk = value[0]                                                                 
+                    hosts.append(value[1])                                                          # Prendi l'host e mettilo nella lista
+                    if risk == "Low":
+                        lowtotal += 1
+                        continue
+                    elif risk == "Medium":
+                        midtotal += 1
+                        continue
+                    elif risk == "High":
+                        hightotal += 1
+                        continue
+                    elif risk == "Critical":
+                        criticaltotal += 1
+                        continue
+                hosts = dict.fromkeys(hosts)                                                        # Per evitare doppi, crea un dizionario
+                for host in hosts:                                                                  # Per ogni host    
+                    low = dati.count(("Low", host))                                                 # Conta le low
+                    mid = dati.count(("Medium", host))                                              # Conta le medium
+                    high = dati.count(("High", host))                                               # Conta le high
+                    critical = dati.count(("Critical", host))                                       # Conta le critical
+                    low = int((low * 100) / lowtotal)                                               # Determina la percentuale in basse a tutte le low
+                    mid = int((mid * 100) / midtotal)                                               # Determina la percentuale in basse a tutte le medium
+                    high = int((high * 100) / hightotal)                                            # Determina la percentuale in basse a tutte le high
+                    critical = int((critical * 100) / criticaltotal)                                # Determina la percentuale in basse a tutte le critical
+                    print(host, "Low:", low, "Medium", mid, "High", high, "Critical", critical)              
                 results = [low, mid, high, critical]
                 return results
         except ValueError:
