@@ -9,27 +9,19 @@ def csvinput():
                 reader = csv.reader(csvfile, delimiter=";")
                 next(reader)
                 dati = [(row[1], row[2]) for row in reader]
+                hosts = [(row[2]) for row in reader]
+                hosts = dict.fromkeys(hosts)
+                print(hosts)
+                input()
                 size = len(dati)
                 low, mid, high, critical = 0,0,0,0
                 for value in dati:
-                    risk = value[0]
                     host = value[1]
-                    if risk == "Low":
-                        low += 1
-                        print(host, "Low:", low)
-                        continue
-                    if risk == "Medium":
-                        mid += 1
-                        print(host, "Medium:", mid)
-                        continue
-                    if risk == "High":
-                        high += 1
-                        print(host, "High:", high)
-                        continue
-                    if risk == "Critical":
-                        critical += 1
-                        print(host, "Critical:", critical)
-                        continue
+                    low = dati.count(("Low", host))
+                    mid = dati.count(("Medium", host))
+                    high = dati.count(("High", host))
+                    critical = dati.count(("Critical", host))
+                    print(host, "Low:", low, "Medium", mid, "High", high, "Critical", critical)
                 low = int((low * 100) / size)
                 mid = int((mid * 100) / size)
                 high = int((high * 100) / size)
