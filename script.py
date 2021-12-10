@@ -14,7 +14,7 @@ def csvinput():
                 for value in dati:
                     risk = value[0]
                     host = value[1]
-                    :
+                    
 
                 #low = int((low * 100) / size)
                 #mid = int((mid * 100) / size)
