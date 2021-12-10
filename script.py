@@ -10,17 +10,31 @@ def csvinput():
                 next(reader)
                 dati = [(row[1], row[2]) for row in reader]
                 size = len(dati)
-                risklist = [0,0,0,0]
+                low, mid, high, critical = 0,0,0,0
                 for value in dati:
                     risk = value[0]
                     host = value[1]
-                    
-
-                #low = int((low * 100) / size)
-                #mid = int((mid * 100) / size)
-                #high = int((high * 100) / size)
-                #critical = int((critical * 100) / size)
-                #results = [low, mid, high, critical]
+                    if risk == "Low":
+                        low += 1
+                        print(host, "Low:", low)
+                        continue
+                    if risk == "Medium":
+                        mid += 1
+                        print(host, "Medium:", mid)
+                        continue
+                    if risk == "High":
+                        high += 1
+                        print(host, "High:", high)
+                        continue
+                    if risk == "Critical":
+                        critical += 1
+                        print(host, "Critical:", critical)
+                        continue
+                low = int((low * 100) / size)
+                mid = int((mid * 100) / size)
+                high = int((high * 100) / size)
+                critical = int((critical * 100) / size)
+                results = [low, mid, high, critical]
                 return results
         except ValueError:
             print("File non trovato, reinserire: ")
