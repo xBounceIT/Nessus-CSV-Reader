@@ -13,7 +13,6 @@ def csvinput():
                 hosts = dict.fromkeys(hosts)
                 print(hosts)
                 input()
-                size = len(dati)
                 low, mid, high, critical = 0,0,0,0
                 for value in dati:
                     host = value[1]
@@ -21,11 +20,12 @@ def csvinput():
                     mid = dati.count(("Medium", host))
                     high = dati.count(("High", host))
                     critical = dati.count(("Critical", host))
+                    total = low + mid + high + critical
+                    low = int((low * 100) / total)
+                    mid = int((mid * 100) / total)
+                    high = int((high * 100) / total)
+                    critical = int((critical * 100) / total)
                     print(host, "Low:", low, "Medium", mid, "High", high, "Critical", critical)
-                low = int((low * 100) / size)
-                mid = int((mid * 100) / size)
-                high = int((high * 100) / size)
-                critical = int((critical * 100) / size)
                 results = [low, mid, high, critical]
                 return results
         except ValueError:
