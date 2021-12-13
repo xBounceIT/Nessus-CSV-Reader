@@ -10,3 +10,7 @@ Current features available are:
 - Multiple host support
 - Pie graph for all severities detected
 - Detailed txt report
+
+How to execute:
+- Move the executable in a folder of your preference
+- Execute
