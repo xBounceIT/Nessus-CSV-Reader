@@ -31,12 +31,12 @@ def csvinput():
             elif risk == "Critical":
                 criticaltotal += 1
                 continue
-        hosts = dict.fromkeys(hosts)                                                        # Per evitare doppi, crea un dizionario
-        for host in hosts:                                                                  # Per ogni host    
-            low = dati.count(("Low", host))                                                 # Conta le low
-            mid = dati.count(("Medium", host))                                              # Conta le medium
-            high = dati.count(("High", host))                                               # Conta le high
-            critical = dati.count(("Critical", host))                                       # Conta le critical
+                hosts = dict.fromkeys(hosts)                                                        # Per evitare doppi, crea un dizionario
+        for host in hosts:                                                                          # Per ogni host    
+            low = dati.count(("Low", host))                                                         # Conta le low
+            mid = dati.count(("Medium", host))                                                      # Conta le medium
+            high = dati.count(("High", host))                                                       # Conta le high
+            critical = dati.count(("Critical", host))                                               # Conta le critical
             low = round(((low * 100) / lowtotal), 2)                                               # Determina la percentuale in basse a tutte le low
             mid = round(((mid * 100) / midtotal), 2)                                               # Determina la percentuale in basse a tutte le medium
             high = round(((high * 100) / hightotal), 2)                                            # Determina la percentuale in basse a tutte le high
