@@ -6,6 +6,7 @@ Requirements:
 - Install matplotlib library to allow the script to generate graphs: https://www.tutorialspoint.com/how-to-install-matplotlib-in-python
 
 Current features available are:
+- Graphical data import
 - Multiple host support
 - Pie graph for all severities detected
 - Detailed txt report
