@@ -1,18 +1,22 @@
-import csv
-import datetime
+import csv, datetime
 import matplotlib.pyplot as plt
+import tkinter as tk
+from tkinter import filedialog
+import pymsgbox
 
 date = datetime.datetime.now()
 date = date.strftime("%d-%m-%Y")
 
-def startup():
-    print("Nessus CSV Reader v1.1\n")
+window = tk.Tk()
+window.geometry("300x300")
+window.title("Nessus CSV Reader v1.2")
+window.configure(background="black")
 
 def csvinput():
+    filepath = filedialog.askopenfilename(title="Carica file csv")
     while True:
         try:
-            csvfile = input("Inserisci il path del file csv: ")
-            with open(csvfile, newline="") as csvfile:
+            with open(filepath, newline="") as csvfile:
                 reader = csv.reader(csvfile, delimiter=";")                                         # Legge il file in input utilizzando il punto e virgola con delimiter
                 next(reader)                                                                        # Salta la prima riga corrispondente ai nomi valori
                 dati = [(row[1], row[2]) for row in reader]                                         # Dal file in input immagazzina i valori di ogni riga colonna 1,2
@@ -67,7 +71,7 @@ def csvinput():
                 total = [lowtotal, midtotal, hightotal, criticaltotal]
                 return total
         except FileNotFoundError:
-            print("File non trovato, reinserire: ")
+            window.destroy()
 
 def graph(values):
     labels = ["Low", "Medium", "High", "Critical"]
@@ -78,13 +82,14 @@ def graph(values):
     return 0
 
 def main():
-    startup()
     values = csvinput()
     graph(values)
+    pymsgbox.alert('Report e grafici creati correttamente', 'Esecuzione corretta')
     return 0
 
 if __name__ == "__main__":
   try:
     main()
-  except KeyboardInterrupt:
-    exit("\nScript interrotto dall'utente")
+  except:
+    pymsgbox.alert("Errore, termino", "Crash")
+    exit
