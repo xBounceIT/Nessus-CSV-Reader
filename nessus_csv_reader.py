@@ -65,17 +65,20 @@ def csvinput():
         return total
 
 def graph(values):
-    labels = ["Low", "Medium", "High", "Critical"]
-    plt.pie(values, labels=labels)
-    plt.title(date)
-    plt.legend(bbox_to_anchor=(1.05,1.0), loc="upper left")
-    plt.savefig(f"Grafico_Severity_{date}")
+    try:
+        labels = ["Low", "Medium", "High", "Critical"]
+        plt.pie(values, labels=labels)
+        plt.title(date)
+        plt.legend(bbox_to_anchor=(1.05,1.0), loc="upper left")
+        plt.savefig(f"Grafico_Severity_{date}")
+        pymsgbox.alert('Report e grafici creati correttamente', 'Esecuzione corretta')
+    except:
+        pymsgbox.alert('Errore nella creazione dei report / grafici', 'Crash')
     return 0
 
 def main():
     values = csvinput()
     graph(values)
-    pymsgbox.alert('Report e grafici creati correttamente', 'Esecuzione corretta')
     return 0
 
 if __name__ == "__main__":
